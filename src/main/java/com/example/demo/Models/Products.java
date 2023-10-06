@@ -1,0 +1,96 @@
+package com.example.demo.Models;
+/**Models are entities of the app/data structures and are mapped to database tables **/
+
+
+import jakarta.persistence.*;
+import java.math.BigDecimal;
+
+@Entity
+public class Products {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long productId;
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    private String productName;
+    private BigDecimal balance;
+
+    @Enumerated(EnumType.STRING) // Use EnumType.STRING for storing enum values as strings
+    private ProductType productType;
+
+    @ManyToOne
+    @JoinColumn(name = "investor_id")
+    private Investor investor;
+
+    public Products() {
+        // Default constructor
+    }
+
+    public Products(String productName, BigDecimal balance, ProductType productType) {
+        this.productName = productName;
+        this.balance = balance;
+        this.productType = productType;
+    }
+
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
+    }
+
+
+    public enum ProductType {
+        RETIREMENT(1, "Retirement Account", BigDecimal.valueOf(500000.00)),
+        SAVINGS(2, "Savings Account", BigDecimal.valueOf(36000.00));
+
+        private final int productId;
+        private final String productName;
+        private final BigDecimal initialBalance;
+
+
+        ProductType(int productId, String productName, BigDecimal initialBalance) {
+            this.productId = productId;
+            this.productName = productName;
+            this.initialBalance = initialBalance;
+        }
+
+        public int getProductId() {
+            return productId;
+        }
+
+        public String getProductName() {
+            return productName;
+        }
+
+        public BigDecimal getInitialBalance() {
+            return initialBalance;
+        }
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public Investor getInvestor() {
+        return investor;
+    }
+
+    public void setInvestor(Investor investor) {
+        this.investor = investor;
+    }
+
+}
