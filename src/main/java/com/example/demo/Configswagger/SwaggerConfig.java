@@ -28,7 +28,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Withdrawal app API Documentation")
-                .description("http://localhost:5432/swagger-ui.html\n")
+                .description("http://localhost:8088/swagger-ui.html")
                 .version("1.0")
                 .build();
     }
