@@ -17,7 +17,7 @@ public class Withdrawal {
     private BigDecimal amount;
 
     @ManyToOne
-    @JoinColumn(name = "investor_id")
+    @JoinColumn(name = "investorId", insertable = false, updatable = false)
     private Investor investor;
 
     public Investor getInvestor() {

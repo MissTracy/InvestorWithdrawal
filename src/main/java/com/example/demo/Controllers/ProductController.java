@@ -1,4 +1,4 @@
-package com.example.demo.Contollers;
+package com.example.demo.Controllers;
 /**Controllers handle incoming HTTP requests, interact with clients and services methods to perform business logic**/
 
 
@@ -6,6 +6,8 @@ import com.example.demo.Models.Investor;
 import com.example.demo.Models.Products;
 import com.example.demo.Services.InvestorService;
 import com.example.demo.Services.ProductService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api(tags = "products")
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -28,12 +31,14 @@ public class ProductController {
 
     // Retrieve a list of products for a given investor
     @GetMapping("/{investorId}/products")
+    @ApiOperation(value = "Get products using investor id", response = Products.class)
     public ResponseEntity<List<Products>> getInvestorProducts(@PathVariable Long investorId) {
         List<Products> products = investorService.getInvestorProducts(investorId);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
     @PostMapping("/create")
+    @ApiOperation(value = "Post new products after any change", response = Products.class)
     public ResponseEntity<String> createProduct(@RequestBody Products productRequest) {
         Investor investor = new Investor();
 

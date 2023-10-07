@@ -13,7 +13,7 @@ CREATE TABLE Investor (
 -- Insert Investor data
 INSERT INTO Investor (name, surname, date_of_birth, address, mobile_number, email)
 VALUES
-    ('Jane', 'Smith', '19888-08-29', '888 high street Sandstone', '065-123-4567', 'jane@gmail.com');
+    ('Jane', 'Smith', '1988-08-29', '888 high street Sandstone', '065-123-4567', 'jane@gmail.com');
 
 -- Create Product table
 CREATE TABLE Product (
