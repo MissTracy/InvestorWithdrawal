@@ -16,6 +16,13 @@ public class InvestorService {
     @Autowired
     private InvestorRepository investorRepository;
 
+
+    //for test
+    public InvestorService(InvestorRepository investorRepository) {
+
+    }
+
+
     public Investor getInvestorById(Long id) {
         return investorRepository.findById(id).orElse(null);
     }

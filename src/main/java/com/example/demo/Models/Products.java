@@ -64,6 +64,7 @@ public class Products {
             this.initialBalance = initialBalance;
         }
 
+
         public int getProductId() {
             return productId;
         }
