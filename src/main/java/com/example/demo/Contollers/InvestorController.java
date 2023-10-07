@@ -4,6 +4,7 @@ package com.example.demo.Contollers;
 
 import com.example.demo.Models.Products;
 import com.example.demo.Services.InvestorService;
+//import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ public class InvestorController {
     private InvestorService investorService;
 
     // Retrieve investor information by ID
+//    @Operation
     @GetMapping("/{id}")
     public ResponseEntity<InvestorService> getInvestorById(@PathVariable Long id) {
         InvestorService investor = investorService;
@@ -30,6 +32,7 @@ public class InvestorController {
     }
 
     // Retrieve a list of products for a given investor
+//    @Operation
     @GetMapping("/{id}/products")
     public ResponseEntity<List<Products>> getInvestorProducts(@PathVariable Long id) {
         List<Products> products = investorService.getInvestorProducts(id);
