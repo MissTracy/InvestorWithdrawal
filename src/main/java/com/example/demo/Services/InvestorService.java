@@ -22,7 +22,6 @@ public class InvestorService {
 
     }
 
-
     public Investor getInvestorById(Long id) {
         return investorRepository.findById(id).orElse(null);
     }

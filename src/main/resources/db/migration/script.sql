@@ -2,11 +2,11 @@
 -- Create Investor table
 CREATE TABLE Investor (
                           id SERIAL PRIMARY KEY,
-                          name VARCHAR(255),
-                          surname VARCHAR(255),
+                          name VARCHAR(20),
+                          surname VARCHAR(20),
                           date_of_birth DATE,
                           address VARCHAR(255),
-                          mobile_number VARCHAR(20),
+                          mobile_number VARCHAR(15),
                           email VARCHAR(255)
 );
 
@@ -18,7 +18,7 @@ VALUES
 -- Create Product table
 CREATE TABLE Product (
                          productId SERIAL PRIMARY KEY,
-                         productName VARCHAR(255),
+                         productName VARCHAR(10),
                          balance DECIMAL(10, 2)
 );
 
